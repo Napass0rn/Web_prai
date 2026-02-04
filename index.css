@@ -1,0 +1,97 @@
+/* ตั้งค่าพื้นฐาน */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+/* หัวใจหลัก: ระบบคอลัมน์แบบ Pinterest */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    /* แบ่งคอลัมน์อัตโนมัติ */
+    column-count: 3; 
+    column-gap: 15px; /* ระยะห่างระหว่างคอลัมน์ */
+}
+
+/* การจัดการแต่ละรูปภาพ */
+.pin {
+    display: inline-block; /* ป้องกันรูปภาพแยกส่วนระหว่างคอลัมน์ */
+    width: 100%;
+    margin-bottom: 15px; /* ระยะห่างระหว่างรูปบน-ล่าง */
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.pin:hover {
+    transform: scale(1.02); /* ขยายเล็กน้อยเวลาเอาเมาส์วาง */
+}
+
+.pin img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+/* ปรับจำนวนคอลัมน์ตามขนาดหน้าจอ (Responsive) */
+@media (max-width: 900px) {
+    .container {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        column-count: 1;
+    }
+}
+/* สไตล์สำหรับปุ่ม About Me */
+.about-button {
+    position: fixed;    /* ทำให้ปุ่มติดอยู่ที่หน้าจอ ไม่เลื่อนหายไปไหน */
+    top: 20px;          /* ห่างจากขอบบน 20px */
+    right: 20px;        /* ห่างจากขอบขวา 20px */
+    padding: 10px 20px;
+    background-color: #333; /* สีปุ่ม (เปลี่ยนตามชอบ เช่น #E60023 สำหรับสีแดงแบบ Pinterest) */
+    color: white;       /* สีตัวอักษร */
+    text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
+    border-radius: 25px;   /* ทำขอบมน */
+    font-size: 0.9rem;
+    font-weight: bold;
+    z-index: 1000;      /* ทำให้ปุ่มอยู่เลเยอร์บนสุดเสมอ ไม่โดนรูปทับ */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* เอฟเฟกต์เวลาเอาเมาส์ไปชี้ */
+.about-button:hover {
+    background-color: #555;
+    transform: translateY(-2px); /* ลอยขึ้นเล็กน้อย */
+}
+
+/* ปรับตำแหน่งปุ่มเมื่อดูในมือถือ เพื่อไม่ให้บังเนื้อหาเกินไป */
+@media (max-width: 600px) {
+    .about-button {
+        top: 15px;
+        right: 15px;
+        padding: 8px 15px;
+        font-size: 0.8rem;
+    }
+}
