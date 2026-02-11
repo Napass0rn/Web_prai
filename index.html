@@ -15,32 +15,77 @@
     </header>
 
     <main class="container">
+        
         <div class="pin">
-            <img src="CSFP.jpg" alt="Work 1">
+            <img src="bandai.jpg" alt="Work 1">
         </div>
         <div class="pin">
-            <img src="MHB.jpg" alt="Work 2">
+            <img src="lantern.jpg" alt="Work 2">
         </div>
         <div class="pin">
-            <img src="HGRM.jpg" alt="Work 3">
+            <img src="picway.jpg" alt="Work 3">
             </div>
-        <div class="pin">
-            <img src="HCC.jpg" alt="Work 4">
+            <div class="pin">
+            <img src="saofi.jpg" alt="Work 4">
         </div>
         <div class="pin">
-            <img src="LOID.jpg" alt="Work 5">
+            <img src="morepicway.jpg" alt="Work 5">
         </div>
         <div class="pin">
-            <img src="SGRG.jpg" alt="Work 6">
+            <img src="manga.jpg" alt="Work 6">
         </div>
         <div class="pin">
-            <img src="RGK.jpg" alt="Work 7">
+            <img src="sunset.jpg" alt="Work 7">
         </div>
         <div class="pin">
-            <img src="train.jpg" alt="Work 8">
+            <img src="glassoftempo.jpg" alt="Work 8">
+        </div>
+        <div class="pin">
+            <img src="mirror.jpg" alt="Work 9">
+        </div>
+        <div class="pin">
+            <img src="wincar.jpg" alt="Work 10">
+        </div>
+        <div class="pin">
+            <img src="postof.jpg" alt="Work 11">
+        </div>
+        <div class="pin">
+            <img src="stand.jpg" alt="Work 12">
+        </div>
+        <div class="pin">
+            <img src="wincar2.jpg" alt="Work 13">
         </div>
         
         </main>
+<!-- Modal สำหรับดูภาพเต็ม -->
+<div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg">
+</div>
+
+<script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const images = document.querySelectorAll(".pin img");
+    const closeBtn = document.querySelector(".close");
+
+    images.forEach(img => {
+        img.addEventListener("click", function() {
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+        });
+    });
+
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    modal.onclick = function(e) {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+</script>
 
 </body>
 </html>
