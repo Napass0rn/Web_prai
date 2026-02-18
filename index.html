@@ -7,57 +7,60 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <a href="about.html" class="about-button">About Me</a>
 
-    <header>
-        <h1>PRAI SCAPE</h1>
-        <p>"STAY STRONG"</p>
-    </header>
+<header class="site-header">
+    <div class="container flex-between">
+        <div>
+            <h1>PRAI SCAPE</h1>
+            <p>"STAY STRONG"</p>
+        </div>
 
-    <main class="container">
-        
-        <div class="pin">
-            <img src="bandai.jpg" alt="Work 1">
+        <nav>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="gallery">
+        <h2 class="section-title">My Works</h2>
+
+        <div class="grid-gallery">
+            
+            <article class="pin"><img src="bandai.jpg" alt="Work 1"></article>
+            <article class="pin"><img src="lantern.jpg" alt="Work 2"></article>
+            <article class="pin"><img src="picway.jpg" alt="Work 3"></article>
+            <article class="pin"><img src="saofi.jpg" alt="Work 4"></article>
+            <article class="pin"><img src="morepicway.jpg" alt="Work 5"></article>
+            <article class="pin"><img src="manga.jpg" alt="Work 6"></article>
+            <article class="pin"><img src="sunset.jpg" alt="Work 7"></article>
+            <article class="pin"><img src="glassoftempo.jpg" alt="Work 8"></article>
+            <article class="pin"><img src="mirror.jpg" alt="Work 9"></article>
+            <article class="pin"><img src="wincar.jpg" alt="Work 10"></article>
+            <article class="pin"><img src="postof.jpg" alt="Work 11"></article>
+            <article class="pin"><img src="stand.jpg" alt="Work 12"></article>
+            <article class="pin"><img src="wincar2.jpg" alt="Work 13"></article>
+
         </div>
-        <div class="pin">
-            <img src="lantern.jpg" alt="Work 2">
-        </div>
-        <div class="pin">
-            <img src="picway.jpg" alt="Work 3">
-            </div>
-            <div class="pin">
-            <img src="saofi.jpg" alt="Work 4">
-        </div>
-        <div class="pin">
-            <img src="morepicway.jpg" alt="Work 5">
-        </div>
-        <div class="pin">
-            <img src="manga.jpg" alt="Work 6">
-        </div>
-        <div class="pin">
-            <img src="sunset.jpg" alt="Work 7">
-        </div>
-        <div class="pin">
-            <img src="glassoftempo.jpg" alt="Work 8">
-        </div>
-        <div class="pin">
-            <img src="mirror.jpg" alt="Work 9">
-        </div>
-        <div class="pin">
-            <img src="wincar.jpg" alt="Work 10">
-        </div>
-        <div class="pin">
-            <img src="postof.jpg" alt="Work 11">
-        </div>
-        <div class="pin">
-            <img src="stand.jpg" alt="Work 12">
-        </div>
-        <div class="pin">
-            <img src="wincar2.jpg" alt="Work 13">
-        </div>
-        
-        </main>
-<!-- Modal สำหรับดูภาพเต็ม -->
+    </section>
+
+    <aside class="sidebar">
+        <h3>About This Portfolio</h3>
+        <p>รวมผลงานภาพถ่ายและงานสร้างสรรค์ของฉัน</p>
+    </aside>
+
+</main>
+
+<footer>
+    <p>© 2026 Prai Scape | All Rights Reserved</p>
+</footer>
+
+
+<!-- Modal -->
 <div id="imageModal" class="modal">
     <span class="close">&times;</span>
     <img class="modal-content" id="modalImg">
@@ -76,14 +79,10 @@
         });
     });
 
-    closeBtn.onclick = function() {
-        modal.style.display = "none";
-    };
+    closeBtn.onclick = () => modal.style.display = "none";
 
-    modal.onclick = function(e) {
-        if (e.target === modal) {
-            modal.style.display = "none";
-        }
+    modal.onclick = (e) => {
+        if (e.target === modal) modal.style.display = "none";
     };
 </script>
 
