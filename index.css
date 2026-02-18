@@ -1,157 +1,179 @@
-/* ตั้งค่าพื้นฐาน */
-body {
+/* ===============================
+   CSS VARIABLES
+================================ */
+:root {
+    --primary-color: #111;
+    --secondary-color: #f7f7f7;
+    --accent-color: #333;
+    --text-color: #222;
+    --radius: 1rem;
+    --spacing: 1.5rem;
+}
+
+/* ===============================
+   RESET
+================================ */
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Helvetica Neue', sans-serif;
-    background-color: #f7f7f7;
-    color: #333;
+    box-sizing: border-box;
 }
 
-header {
-    text-align: center;
-    padding: 40px 20px;
+body {
+    font-family: sans-serif;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    position: relative;
 }
 
-header h1 {
-    font-size: 2rem;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
+/* Background Layer */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("BGj.png") no-repeat center/cover;
+    opacity: 0.25;
+    z-index: -1;
 }
 
-/* หัวใจหลัก: ระบบคอลัมน์แบบ Pinterest */
+/* ===============================
+   UTILITY CLASSES
+================================ */
 .container {
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
-    
-    /* แบ่งคอลัมน์อัตโนมัติ */
-    column-count: 3; 
-    column-gap: 15px; /* ระยะห่างระหว่างคอลัมน์ */
+    margin: auto;
 }
 
-/* การจัดการแต่ละรูปภาพ */
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ===============================
+   HEADER + NAV (Flexbox)
+================================ */
+.site-header {
+    padding: 2rem 0;
+}
+
+.nav-list {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* ===============================
+   GALLERY (CSS GRID)
+================================ */
+.gallery {
+    margin-top: 2rem;
+}
+
+.section-title {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing);
+    container-type: inline-size; /* สำหรับ container queries */
+}
+
 .pin {
-    display: inline-block; /* ป้องกันรูปภาพแยกส่วนระหว่างคอลัมน์ */
-    width: 100%;
-    margin-bottom: 15px; /* ระยะห่างระหว่างรูปบน-ล่าง */
     background: white;
-    border-radius: 12px;
+    border-radius: var(--radius);
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 0.3rem 0.6rem rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+
+    aspect-ratio: 4 / 5;   /* คุมสัดส่วนให้เท่ากันทุกภาพ */
 }
 
 .pin:hover {
-    transform: scale(1.02); /* ขยายเล็กน้อยเวลาเอาเมาส์วาง */
+    transform: scale(1.03);
 }
 
 .pin img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;   /* สำคัญมาก ทำให้ภาพเต็มกรอบ */
     display: block;
-    height: auto;
-}
-
-/* ปรับจำนวนคอลัมน์ตามขนาดหน้าจอ (Responsive) */
-@media (max-width: 900px) {
-    .container {
-        column-count: 2;
-    }
-}
-
-@media (max-width: 600px) {
-    .container {
-        column-count: 1;
-    }
-}
-/* สไตล์สำหรับปุ่ม About Me */
-.about-button {
-    position: fixed;    /* ทำให้ปุ่มติดอยู่ที่หน้าจอ ไม่เลื่อนหายไปไหน */
-    top: 20px;          /* ห่างจากขอบบน 20px */
-    right: 20px;        /* ห่างจากขอบขวา 20px */
-    padding: 10px 20px;
-    background-color: #333; /* สีปุ่ม (เปลี่ยนตามชอบ เช่น #E60023 สำหรับสีแดงแบบ Pinterest) */
-    color: white;       /* สีตัวอักษร */
-    text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
-    border-radius: 25px;   /* ทำขอบมน */
-    font-size: 0.9rem;
-    font-weight: bold;
-    z-index: 1000;      /* ทำให้ปุ่มอยู่เลเยอร์บนสุดเสมอ ไม่โดนรูปทับ */
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-/* เอฟเฟกต์เวลาเอาเมาส์ไปชี้ */
-.about-button:hover {
-    background-color: #555;
-    transform: translateY(-2px); /* ลอยขึ้นเล็กน้อย */
-}
-
-/* ปรับตำแหน่งปุ่มเมื่อดูในมือถือ เพื่อไม่ให้บังเนื้อหาเกินไป */
-@media (max-width: 600px) {
-    .about-button {
-        top: 15px;
-        right: 15px;
-        padding: 8px 15px;
-        font-size: 0.8rem;
-    }
-}
-/* ทำให้รูปกดได้ */
-.pin img {
-    width: 100%;
     cursor: pointer;
-    transition: transform 0.3s;
 }
 
-.pin img:hover {
-    transform: scale(1.05);
+
+/* ===============================
+   ASIDE
+================================ */
+.sidebar {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: white;
+    border-radius: var(--radius);
 }
 
-/* Modal เต็มจอ */
+/* ===============================
+   FOOTER
+================================ */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    background: var(--primary-color);
+    color: white;
+}
+
+/* ===============================
+   MODAL
+================================ */
 .modal {
     display: none;
     position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    inset: 0;
+    background: rgba(0,0,0,0.9);
     justify-content: center;
     align-items: center;
 }
 
-/* รูปใน modal */
 .modal-content {
     max-width: 90%;
-    max-height: 90%;
+    max-height: 90vh;
 }
 
-/* ปุ่มปิด */
 .close {
     position: absolute;
-    top: 20px;
-    right: 35px;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2.5rem;
     color: white;
-    font-size: 40px;
-    font-weight: bold;
     cursor: pointer;
 }
 
-body {
-    margin: 0;
-    font-family: sans-serif;
-    position: relative;
+/* ===============================
+   MEDIA QUERIES
+================================ */
+@media (max-width: 768px) {
+    .flex-between {
+        flex-direction: column;
+        gap: 1rem;
+    }
 }
 
-/* สร้างเลเยอร์พื้นหลัง */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url("BGj.png") no-repeat center center/cover;
-    opacity: 0.30; /* ปรับความจางตรงนี้ */
-    z-index: -1;
+/* ===============================
+   CONTAINER QUERY
+================================ */
+@container (max-width: 500px) {
+    .pin {
+        background: #fafafa;
+    }
 }
