@@ -8,61 +8,51 @@
 </head>
 <body>
 
-    <a href="index.html" class="back-button">← Back</a>
+<header class="site-header">
+    <div class="container flex-between">
+        <h1>About Me</h1>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-<div class="container">
+<main class="container about-layout">
 
-    <!-- LEFT SIDE -->
-    <div class="left">
-
-        <div class="title">
-            <span>About</span><br>
-            <span>Me</span>
-        </div>
-
-        <div class="subtext">
-            About Me • About Me • About Me • About Me
-        </div>
-
-        <hr>
-
-        <div class="profile-img">
+    <!-- LEFT SECTION -->
+    <section class="left">
+        
+        <article class="profile-card">
             <img src="pri.jpg" alt="My Profile">
-        </div>
+        </article>
 
-        <div class="section-title">
-            <span>Mental</span>
-        </div>
-
-        <div class="box">
+        <article class="info-box">
+            <h2>Mental</h2>
             <p>Myers-briggs: INFP</p>
-            <p>Temperament: friendly</p>
+            <p>Temperament: Friendly</p>
             <p>Strengths: Creative, Honest</p>
             <p>Weaknesses: Overthinking</p>
-        </div>
+        </article>
 
-    </div>
+    </section>
 
+    <!-- RIGHT SECTION -->
+    <aside class="right">
 
-    <!-- RIGHT SIDE -->
-    <div class="right">
-
-        <div class="section-title">
-            <span>Background</span>
-        </div>
-
-        <div class="box">
+        <article class="info-box">
+            <h2>Background</h2>
             <p>
-               Many things are allowed to pass and follow their own course
-               without holding on,wihtout forcing them.yet the small details never really dissappear;they continue to linger quietly in my thoughts.
+                Many things are allowed to pass and follow their own course
+                without holding on, without forcing them. Yet the small details
+                never really disappear; they continue to linger quietly in my thoughts.
             </p>
-        </div>
+        </article>
 
-        <div class="section-title">
-            <span>General</span>
-        </div>
-
-        <div class="box">
+        <article class="info-box">
+            <h2>General</h2>
             <ul>
                 <li><strong>First name:</strong> นางสาวนภัสสร คุ้มพูล</li>
                 <li><strong>Nick name:</strong> ปราย</li>
@@ -70,12 +60,15 @@
                 <li><strong>Nationality:</strong> Thai</li>
                 <li><strong>Gender:</strong> Female</li>
             </ul>
-        </div>
+        </article>
 
-    </div>
+    </aside>
 
+</main>
 
-</div>
+<footer>
+    <p>© 2026 Prai Scape | All Rights Reserved</p>
+</footer>
 
 </body>
 </html>
