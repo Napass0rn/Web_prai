@@ -161,3 +161,18 @@ footer {
     }
 }
 
+.contact-link {
+    position: absolute;
+
+    right: 150px;   /* เดิมอาจ 80px → เพิ่มให้ขยับไปซ้าย */
+    bottom: 140px;  /* เดิมอาจ 80px → เพิ่มให้ขยับขึ้น */
+
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(110, 110, 110);
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+
