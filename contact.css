@@ -1,0 +1,139 @@
+/* =========================
+   RESET + VARIABLES
+========================= */
+:root {
+    --text-color: #000;
+    --overlay: rgba(255,255,255,0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    color: var(--text-color);
+    min-height: 100vh;
+    position: relative;
+}
+
+/* =========================
+   BACKGROUND IMAGE
+========================= */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("web4.jpg") no-repeat center/cover;
+    z-index: -2;
+}
+
+/* ทำให้พื้นหลังดูฟุ้งเหมือนในแบบ */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: var(--overlay);
+    z-index: -1;
+}
+
+/* =========================
+   HEADER
+========================= */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4vw;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.nav-list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-list a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: black;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+.contact-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 3rem 8vw;
+    gap: 3rem;
+}
+
+/* LEFT SIDE */
+.contact-left {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.contact-item img {
+    width: 80px;
+    height: 80px;
+}
+
+/* RIGHT SIDE */
+.contact-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hire-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.hire-title img {
+    width: 70px;
+}
+
+.qr-box {
+    width: 250px;
+    height: 250px;
+    background: #ddd;
+    border-radius: 20px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+    }
+}
